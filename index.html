@@ -1,0 +1,248 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>새집처럼 | 고객 후기 게시판</title><style>
+:root{--ink:#302c29;--muted:#81796f;--navy:#5a473a;--teal:#b67b50;--line:#e9e1d8;--bg:#faf7f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;color:var(--ink)}header{background:#fff;border-bottom:1px solid var(--line)}.wrap{max-width:1100px;margin:auto;padding:0 22px}.top{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{font-size:25px;font-weight:900;color:var(--navy);letter-spacing:-1.5px}.logo span{color:var(--teal)}nav a{font-size:13px;color:#52657b;text-decoration:none;margin-left:18px}nav a:hover{text-decoration:underline}.hero{background:linear-gradient(125deg,#4b3a30,#927052);color:#fff;padding:54px 0 58px}.eyebrow{font-size:12px;letter-spacing:2px;color:#f3d8bc;font-weight:800}.hero h1{font-size:37px;margin:12px 0;letter-spacing:-1.4px}.hero p{line-height:1.8;color:#f5e9de;font-size:15px;max-width:720px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.chips span{background:#ffffff17;border:1px solid #ffffff30;border-radius:30px;padding:8px 12px;font-size:12px}.notice{background:#fff8e9;border:1px solid #f3dca6;color:#805c19;border-radius:12px;padding:15px 18px;font-size:13px;line-height:1.7;margin:25px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.stat strong{display:block;font-size:27px;color:var(--navy);margin:6px 0}.stat small{color:var(--muted)}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:34px 0 16px}.sectionhead h2{margin:0;font-size:23px}.primary{border:0;border-radius:10px;background:var(--teal);color:white;padding:12px 18px;font-weight:800;cursor:pointer}.controls{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap}.controls input,.controls select,form input,form select,form textarea{border:1px solid #d8e1ea;border-radius:10px;background:#fff;padding:12px;font:inherit;color:var(--ink)}.controls input{flex:1;min-width:200px}.review{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px;margin-bottom:12px;box-shadow:0 2px 8px #132c4505}.review-top{display:flex;justify-content:space-between;gap:10px;align-items:start}.name{font-weight:800}.meta{font-size:12px;color:var(--muted);margin-top:6px}.stars{color:#ffb21b;letter-spacing:2px;font-size:18px}.review h3{font-size:17px;margin:14px 0 9px}.review p{font-size:14px;line-height:1.9;color:#4e5e6e;margin:0}.tag{display:inline-block;background:#f6ede3;color:#986943;border-radius:5px;font-size:11px;font-weight:700;padding:5px 8px;margin-top:15px}.sample{display:inline-block;margin-left:5px;font-size:10px;color:#68788b;background:#eef2f6;padding:2px 4px;border-radius:3px}.empty{padding:40px;text-align:center;color:var(--muted)}.more{display:block;width:100%;padding:13px;background:#fff;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-weight:700;margin:16px 0 50px}footer{border-top:1px solid var(--line);padding:32px 0 50px;color:var(--muted);font-size:12px;line-height:1.9}.modal{position:fixed;inset:0;background:#0b1b2ca8;display:none;align-items:center;justify-content:center;padding:20px;z-index:2}.modal.show{display:flex}.dialog{background:#fff;border-radius:18px;padding:26px;max-width:540px;width:100%;max-height:90vh;overflow:auto}.dialog h2{margin-top:0}.field{margin:15px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field select,.field textarea{width:100%}.field textarea{min-height:125px;resize:vertical}.actions{display:flex;justify-content:flex-end;gap:10px}.secondary{background:#eef2f6;border:0;border-radius:10px;padding:12px 18px;cursor:pointer}.fine{font-size:12px;color:#8a671f;line-height:1.6}.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.links a{color:#fff;font-size:13px;text-underline-offset:3px}@media(max-width:600px){.hero h1{font-size:29px}.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:span 2}.top{height:64px}nav a{margin-left:8px;font-size:11px}.review{padding:17px}}
+ .photo-grid{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.photo-grid img{width:92px;height:92px;object-fit:cover;border-radius:9px;border:1px solid #ddd}.review-photo{width:110px;height:100px;object-fit:cover;border-radius:8px;cursor:pointer}.photo-grid a{display:inline-flex}.sample{background:#eef2f6!important;color:#68788b!important}
+.photo-preview-item{position:relative;display:inline-flex;width:92px;height:92px}.photo-preview-item img{width:92px;height:92px;object-fit:cover;border-radius:9px;border:1px solid #ddd}.photo-remove{position:absolute;right:-6px;top:-7px;width:25px;height:25px;border-radius:50%;border:1px solid #fff;background:#c73333;color:#fff;font-size:19px;font-weight:bold;line-height:20px;cursor:pointer;box-shadow:0 1px 4px #0005}.photo-remove:focus-visible{outline:2px solid #123c63;outline-offset:2px}
+</style><style>
+.info-wrap{max-width:1100px;margin:34px auto;padding:0 22px}.info-section{background:#fff;border:1px solid #e4eaf0;border-radius:22px;padding:28px;margin-bottom:18px;box-shadow:0 5px 20px #142b4010}.info-section h2{font-size:24px;margin:0 0 10px;color:#123c63}.info-section p{line-height:1.8;color:#52657b}.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.info-card{padding:18px;border-radius:14px;background:#f4f8fb;border:1px solid #e4eaf0}.info-card b{display:block;color:#123c63;margin-bottom:9px}.info-card small{line-height:1.8;color:#64768b}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}.step{background:#edf7f6;border-radius:12px;padding:15px 10px;text-align:center;font-size:13px;font-weight:700;color:#155a62}.step span{display:block;font-size:12px;color:#6a8491;margin-bottom:7px}.contact-cta{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#123c63;color:white;border-radius:20px;padding:26px 30px}.contact-cta p{color:#d9e7f3;margin:8px 0}.contact-cta a{display:inline-block;background:#fff;color:#123c63;text-decoration:none;border-radius:12px;padding:13px 19px;font-weight:800;white-space:nowrap}.source-note{font-size:12px;color:#738196;margin:10px 0 0}@media(max-width:750px){.info-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.contact-cta{flex-direction:column;align-items:flex-start}.info-section{padding:21px}}
+
+.admin-header-button{position:fixed;right:18px;bottom:18px;z-index:1001;border:1px solid #d9e2ea;background:rgba(239,245,249,.82);color:#647789;font-weight:600;font-size:11px;padding:7px 12px;border-radius:8px;cursor:pointer;box-shadow:0 2px 9px #152c4420;margin:0;opacity:.8}
+.admin-header-button:hover,.admin-header-button:focus-visible{background:#fff;color:#31495c;opacity:1}
+.admin-section{display:none}
+.admin-section.open{display:block;position:fixed;right:18px;bottom:62px;top:auto;left:auto;z-index:1000;width:min(360px,calc(100vw - 36px));padding:0!important;box-shadow:0 10px 28px #152c4426;border-radius:12px;background:#fff}
+@media(max-width:600px){.top{height:auto;min-height:70px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}.admin-header-button{padding:7px 12px}}
+</style><style id="password-recovery-style">#password-recovery-overlay{display:none;position:fixed;inset:0;background:rgba(12,29,45,.68);z-index:99999;align-items:center;justify-content:center;padding:20px}#password-recovery-overlay.show{display:flex}#password-recovery-box{background:white;width:min(420px,100%);border-radius:14px;padding:26px;box-shadow:0 14px 50px #0004}#password-recovery-box label{display:block;margin:14px 0;font-weight:600}#password-recovery-box input{display:block;box-sizing:border-box;width:100%;padding:12px;margin-top:7px;border:1px solid #ccd6e2;border-radius:8px}#password-recovery-box button{width:100%;padding:12px;margin-top:12px}#password-recovery-status{font-size:13px;white-space:pre-wrap}</style><style id="saejip-distinct-redesign">
+/* SAEJIP EDITORIAL REDESIGN — layout, not a recolor */
+:root{--ink:#202d2b;--muted:#697772;--navy:#193b35;--teal:#b36c43;--line:#e3e9e3;--bg:#f6f8f4}
+body{background:var(--bg);color:var(--ink)}
+header{background:#f6f8f4;border-bottom:1px solid #d9e2da;position:relative;z-index:3}
+.wrap{max-width:1240px;padding:0 30px}
+.top{height:92px}.logo{font-size:30px;letter-spacing:-2px;color:#1e433c}.logo span{color:#b36c43}
+nav a{color:#425c54;font-weight:700;font-size:14px;margin-left:26px}
+.hero{position:relative;overflow:hidden;background:#193b35;padding:0;color:#fff}
+.hero:before{content:'';position:absolute;inset:0 0 0 56%;background:radial-gradient(circle at 50% 35%,#c8a27a 0 10%,transparent 10.5%),linear-gradient(145deg,#698c78 0%,#335c4e 42%,#193b35 100%);clip-path:polygon(18% 0,100% 0,100% 100%,0 100%)}
+.hero:after{content:'';position:absolute;right:8%;top:15%;width:26vw;height:26vw;max-width:360px;max-height:360px;border:2px solid #ffffff55;border-radius:50%;box-shadow:0 0 0 40px #ffffff09,0 0 0 85px #ffffff08;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;min-height:450px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:70px;padding-bottom:72px}
+.eyebrow{color:#d3bd9c;font-size:12px;letter-spacing:4px}
+.hero h1{font-family:Georgia,'Malgun Gothic',serif;font-size:clamp(42px,5vw,70px);line-height:1.18;letter-spacing:-3px;max-width:610px;margin:22px 0}
+.hero p{max-width:460px;font-size:16px;color:#e3ece7}
+.chips{max-width:600px;gap:7px}.chips span{border-radius:3px;background:#ffffff12;border-color:#ffffff36;padding:8px 12px}
+.notice{background:transparent;border:0;border-left:4px solid #b36c43;border-radius:0;padding:12px 18px;margin:32px 0;color:#68756e;font-size:12px}
+.stats{grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border:1px solid var(--line);margin:0 0 55px;border-radius:0}
+.stat{border:0;border-right:1px solid var(--line);border-radius:0;padding:25px 32px}.stat:last-child{border:0}.stat strong{color:#1e433c;font-family:Georgia,serif;font-size:34px}
+.sectionhead{margin:0 0 24px;border-bottom:2px solid #1e433c;padding-bottom:22px}.sectionhead h2{font-family:Georgia,'Malgun Gothic',serif;font-size:32px;letter-spacing:-1.5px}
+.primary{background:#1e433c;border-radius:3px;padding:14px 22px}.primary:hover{background:#315c50}
+.controls{padding:18px;background:#eaf0ea;gap:12px;margin-bottom:24px}
+.controls input,.controls select,form input,form select,form textarea{border-radius:3px;border:1px solid #d2ddd4}
+#list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.review{margin:0;border-radius:0;border:1px solid #dce5dd;border-top:4px solid #9eb5a6;box-shadow:none;padding:28px;min-height:240px;transition:transform .15s,box-shadow .15s}
+.review:hover{transform:translateY(-3px);box-shadow:0 12px 25px #193b3514}
+.review h3{font-size:19px;letter-spacing:-.5px;margin:18px 0 12px}.review p{color:#54655c;line-height:1.85}
+.stars{color:#b36c43;font-size:15px}.tag{background:#e9f0e9;color:#355c4c;border-radius:2px}
+.more{border-radius:0;border:1px solid #b9cbbd;background:#fff;margin:26px 0 65px}
+.info-wrap{max-width:1240px;padding:0 30px;margin:65px auto}.info-section{border-radius:0;box-shadow:none;border:1px solid #dfe7df;padding:38px}.info-section h2{color:#1e433c;font-size:28px}
+.info-grid{grid-template-columns:repeat(4,1fr)}.info-card{background:#f1f5f0;border:0;border-top:3px solid #9eb5a6;border-radius:0;padding:24px}.info-card b{color:#1e433c}
+.step{border-radius:0;background:#e8eee7;color:#1e433c;padding:20px 10px}
+.contact-cta{border-radius:0;background:#1e433c;padding:38px}.contact-cta a{border-radius:2px;color:#1e433c}
+.dialog{border-radius:4px}.secondary{border-radius:3px}
+footer{background:#eaf0e9;border-top:1px solid #d9e3da}
+@media(max-width:760px){.wrap{padding:0 18px}.top{height:auto;min-height:75px}.hero .wrap{min-height:390px;padding-top:55px;padding-bottom:55px}.hero:before{inset:0 0 0 48%;opacity:.48}.hero:after{right:-18%;top:18%;width:60vw;height:60vw}.hero h1{font-size:42px;letter-spacing:-2px}.hero p{font-size:14px}.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:18px 10px}.stat strong{font-size:25px}.stat small{font-size:10px}#list{grid-template-columns:1fr}.review{min-height:0;padding:22px}.sectionhead h2{font-size:26px}.info-wrap{padding:0 18px}.info-grid{grid-template-columns:repeat(2,1fr)}.info-section{padding:24px}.contact-cta{padding:24px}}
+</style></head><body><header><div class="wrap top"><div class="logo">새집<span>처럼</span></div><nav><a href="#reviews">고객 후기</a><a href="#about">서비스 안내</a><button id="admin-header-button" type="button" class="admin-header-button">관리</button></nav></div></header><div class="wrap admin-section" style="padding-top:18px;padding-bottom:18px"><span id="admin-area"></span><div id="admin-panel" hidden style="background:#fff;border:1px solid #e4eaf0;padding:18px;margin-top:12px;border-radius:12px;max-width:440px"><form id="admin-form"><label>관리자 이메일<input id="admin-email" type="email" autocomplete="username" required style="display:block;width:100%;padding:10px;margin:6px 0 12px"></label><label>비밀번호<input id="admin-password" type="password" autocomplete="current-password" required style="display:block;width:100%;padding:10px;margin:6px 0 12px"></label><button class="primary" type="submit">로그인</button></form><p id="admin-status" style="font-size:13px"></p><button id="admin-logout" hidden type="button" class="secondary">로그아웃</button></div></div><section class="hero"><div class="wrap"><div class="eyebrow">SAEJIP CHEOREOM · REVIEW BOARD</div><h1>깨끗한 공간, 고객의 이야기</h1><p>새집처럼 리뷰 게시판입니다. 공간을 새롭게 가꾸는 이야기를 만나보세요.</p><div class="chips"><span>이사·입주청소</span><span>거주청소</span><span>상가청소</span><span>특수청소</span><span>줄눈·코팅 시공</span></div><div class="links"></div></div></section><main class="wrap"><div class="notice"><strong>안내:</strong> 화면에 표시된 예시 후기 30개는 디자인 시연용 가상 콘텐츠이며 실제 고객이 작성한 후기가 아닙니다. 실제 고객 후기는 별도로 등록됩니다.</div><div class="stats"><div class="stat"><small>고객 후기</small><strong id="total">0건</strong><small>실제 등록 후기 기준</small></div><div class="stat"><small>평균 평점</small><strong id="avg">평가 전</strong><small>등록된 후기 기준</small></div><div class="stat"><small>서비스 유형</small><strong>5개+</strong><small>프로필에 안내된 서비스 기준</small></div></div><div class="sectionhead" id="reviews"><h2>고객 후기 <span style="font-size:13px;color:#8290a1">고객 후기</span></h2><button class="primary" id="write">+ 후기 작성</button></div><div class="controls"><input id="search" placeholder="후기 제목이나 내용을 검색하세요" aria-label="후기 검색"><select id="category" aria-label="서비스 필터"><option value="">전체 서비스</option><option>이사·입주청소</option><option>거주청소</option><option>상가청소</option><option>특수청소</option><option>줄눈·코팅</option></select><select id="sort" aria-label="정렬"><option value="new">최신순</option><option value="old">오래된순</option><option value="high">평점 높은순</option></select></div><p id="db-status" role="status" style="font-size:13px;color:#718095"></p><div id="list"></div><button class="more" id="more">후기 더 보기</button></main><div class="info-wrap" id="services"><section class="info-section"><div style="font-size:12px;letter-spacing:2px;color:#b6784d;font-weight:800">SAEJIP CHEOREOM · CLEANING REVIEW</div><h2>새집처럼, 공간의 새로운 시작</h2><p>이사·입주청소부터 거주청소, 상가청소까지. 서비스 종류를 선택해 후기를 살펴보고 직접 이용한 경험을 공유할 수 있습니다.</p><div class="info-grid"><div class="info-card"><b>🏠 이사·입주청소</b><small>새 공간에 들어가기 전 청소 경험을 공유합니다.</small></div><div class="info-card"><b>🧽 거주청소</b><small>생활 공간 관리와 청소 후기를 확인하세요.</small></div><div class="info-card"><b>🏢 상가청소</b><small>사무실과 매장 등 업무 공간 청소 후기입니다.</small></div></div></section></div><footer id="about"><div class="wrap"><strong>새집처럼 · 리뷰 게시판</strong><br>예시 후기는 실제 고객 평가가 아닙니다. 실제 고객이 직접 등록한 후기는 새집처럼 전용 테이블에 저장됩니다.</div></footer><div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="후기 작성"><div class="dialog"><h2>후기 작성</h2><p class="fine">실제 서비스 이용 경험만 작성해 주세요. 연락처 등 민감한 개인정보는 입력하지 마세요.</p><form id="form"><div class="field"><label>작성자 표시명</label><input name="name" maxlength="20" required placeholder="예: 김**"></div><div class="field"><label>이용 서비스</label><select name="category" required><option>이사·입주청소</option><option>거주청소</option><option>상가청소</option><option>특수청소</option><option>줄눈·코팅</option></select></div><div class="field"><label>별점</label><select name="rating"><option value="5">★★★★★ (5점)</option><option value="4">★★★★☆ (4점)</option><option value="3">★★★☆☆ (3점)</option><option value="2">★★☆☆☆ (2점)</option><option value="1">★☆☆☆☆ (1점)</option></select></div><div class="field"><label>제목</label><input name="title" maxlength="70" required></div><div class="field"><label>후기 내용</label><textarea name="content" maxlength="1000" required></textarea></div><div class="field"><label for="review-photos">사진 첨부 (선택, 최대 3장 · 장당 5MB)</label><input id="review-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple><p class="fine">다른 사람의 얼굴이나 개인정보가 보이지 않는 사진만 등록해 주세요.</p><div id="photo-preview" class="photo-grid"></div></div><div class="actions"><button type="button" class="secondary" id="cancel">취소</button><button type="submit" class="primary">후기 등록</button></div></form></div></div><div id="password-recovery-overlay" role="dialog" aria-modal="true" aria-labelledby="password-recovery-heading"><div id="password-recovery-box"><h2 id="password-recovery-heading">관리자 비밀번호 재설정</h2><p>이메일로 받은 재설정 링크를 통해 새 비밀번호를 설정합니다.</p><form id="password-recovery-form"><label>새 비밀번호<input id="new-admin-password" type="password" minlength="8" autocomplete="new-password" required></label><label>새 비밀번호 확인<input id="confirm-admin-password" type="password" minlength="8" autocomplete="new-password" required></label><button class="primary" id="password-recovery-submit" type="submit">비밀번호 변경</button></form><p id="password-recovery-status" role="status"></p><button id="password-recovery-close" class="secondary" type="button">닫기</button></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
+const seeds=[["2026-11-11","이사·입주청소",5,"창틀 진짜 깨끗해짐","이사 하루 전이라 바빴는데 창틀 보고 좀 놀랐어요. 전 세입자가 남긴 먼지가 많았거든요. 집 들어가자마자 확인한 데가 창틀이었는데 맘에 들었습니다.","김**"],["2026-10-15","거주청소",4,"아이 있는 집 청소","애들 장난감이 많아서 좀 죄송했네요 ㅠㅠ 주방이랑 화장실은 만족. 근데 냉장고 옆쪽은 제가 나중에 한번 더 닦았어요.","박**"],["2026-09-19","이사·입주청소",5,"욕실 수전 반짝반짝","사진으로는 잘 안 보였는데 실제로 보니 물때가 많이 없어졌네요. 특히 샤워부스 유리가 깨끗해서 좋았어요!","이**"],["2026-08-26","특수청소",5,"설명 듣고 진행했습니다","특수청소가 처음이라 궁금한게 많았어요. 현장 상태 보고 가능한 작업이랑 어려운 작업을 나눠서 말씀해주셨습니다. 그 점이 괜찮았어요.","최**"],["2026-07-30","이사·입주청소",4,"늦게 끝났지만 괜찮아요","생각보다 오래걸렸습니다. 일정 있으신 분들은 시간 여유있게 잡으세요. 마무리 확인은 꼼꼼히 했어요.","정**"],["2026-06-18","상가청소",5,"매장 오픈 준비 끝!","공사하고 바닥에 분진이 엄청났는데 이제 좀 매장 같네요 ㅋㅋ 유리문도 깨끗해졌고요. 오픈 전날 정신 없었는데 도움됐습니다","한**"],["2026-05-21","줄눈·코팅",5,"줄눈 색깔 고민하시는 분","저는 회색이랑 아이보리중에 엄청 고민했어요... 결국 아이보리 했는데 욕실이 환해보여요. 관리할 때 주의할 점도 알려주심.","윤**"],["2026-04-23","이사·입주청소",5,"서랍장 안에도 해주셨네요","싱크대 서랍을 빼서 봤는데 안쪽에 가루먼지가 거의 없었어요. 이런데까지 하는줄 몰랐네요. 만족합니다.","오**"],["2026-03-12","거주청소",4,"기름때는 역시 어렵네요","주방 후드 옆쪽이 오래돼서 그런지 새것처럼 되진 않더라구요. 그래도 손으로 만졌을때 끈적임이 확 줄었어요. 별 하나는 그 부분 때문에 뺐습니다.","서**"],["2026-02-20","상가청소",5,"사무실 이전 청소","일정 맞춰서 와주셨고 바닥 청소 상태 양호했습니다. 출입문 유리와 회의실 쪽이 특히 깔끔했습니다.","조**"],["2026-01-17","특수청소",4,"추가 작업 설명은 들었어요","현장 오염이 심해서 예상했던 금액보다 올라갔습니다. 솔직히 당황했지만 왜 추가 공정이 필요한지 설명해 주셔서 결정했어요.","문**"],["2025-12-24","이사·입주청소",5,"입주전 청소 후기 남겨요","예약 당일에 제가 늦어서 연락드렸는데 괜찮다고 해주셔서 감사했어요ㅠ 청소 끝나고 들어갔을때 먼지 냄새가 덜났어요.","신**"],["2025-11-11","거주청소",5,"엄마집 청소했어요","제가 대신 예약한거라 걱정됐는데 중간에 사진 보내주시더라구요. 엄마가 화장실이 깨끗하다고 좋아하셨어요ㅎㅎ","류**"],["2025-10-19","거주청소",5,"주방 청소 만족","싱크대 아래쪽은 맨날 미뤘는데 이번에 정리돼서 속시원해요. 그냥 청소 맡겨보길 잘했네요.","백**"],["2025-09-16","상가청소",4,"예약 연락이 살짝 꼬였음","처음 시간 조율할때 답이 조금 늦어서 걱정했습니다. 실제 작업은 무난했구요. 문 유리 지문이 싹 없어졌네요.","강**"],["2025-08-28","줄눈·코팅",5,"줄눈 하고나서","색상 고를때 사진만 봐선 감이 안왔는데 결과는 괜찮습니다. 하루 정도 물 안쓰는게 좋다해서 조심중이에요.","임**"],["2025-07-10","이사·입주청소",5,"오래된 집 입주청소","구축이라 기대 별로 안했는데 생각보다 깨끗해졌어요. 물론 오래된 자국은 남아있음. 창문 레일은 진짜 차이 납니다.","장**"],["2025-06-13","특수청소",4,"냄새 문제로 문의","청소한다고 냄새가 무조건 없어지는건 아니라고 하셨어요. 원인부터 봐야 한다는 설명이 납득됐습니다.","남**"],["2025-05-20","이사·입주청소",5,"친구가 소개해줘서","친구 추천으로 연락함. 견적 받고 바로 예약했어요. 청소 끝나고 둘러보면서 몇 군데 질문했는데 답변 잘 해주셨습니다~","권**"],["2025-04-14","거주청소",5,"주말 청소 대신 맡김","맞벌이라 주말마다 대청소하기 너무 힘들어서 한번 이용해봤어요. 욕실바닥이 제일 만족스럽네요. 담번엔 창틀도 부탁하려고요.","유**",["2026-11-03","이사·입주청소",5,"창틀 청소 전후 비교","창틀 사이에 먼지가 쌓이는 상황을 가정한 후기 예시입니다. 작업 후 확인할 부분을 정리했습니다.","고**"],["2026-09-04","거주청소",4,"주방 정리 후기 예시","주방의 기름때와 싱크대 하부를 확인하는 상황을 담은 샘플입니다.","황**"],["2026-07-09","상가청소",5,"매장 오픈 전 청소","매장 오픈을 앞두고 바닥과 유리문 상태를 점검하는 예시입니다.","차**"],["2026-05-06","이사·입주청소",5,"신축 입주 전 점검","신축 입주 전 서랍 내부와 욕실 수전 등을 살펴보는 후기 예시입니다.","송**"],["2026-03-27","거주청소",4,"욕실 물때 관리","욕실 바닥과 샤워부스 물때를 점검하는 사례를 가정한 예시입니다.","안**"],["2026-01-08","이사·입주청소",5,"이사 일정과 청소 예약","이사 전 청소 일정과 마무리 검수를 조율하는 예시입니다.","노**"],["2025-11-29","특수청소",4,"현장 상태 설명","현장 오염 정도에 따라 작업 범위를 안내받는 상황을 가정했습니다.","도**"],["2025-09-05","상가청소",5,"사무실 이전 전 청소","사무실 이전 전에 바닥과 회의실을 확인하는 예시입니다.","하**"],["2025-07-22","줄눈·코팅",5,"줄눈 색상 선택","욕실 줄눈 색상을 고르는 과정을 가정한 샘플 후기입니다.","전**"],["2025-04-28","이사·입주청소",4,"구축 아파트 청소","오래된 집의 창문 레일과 주방 수납장 상태를 확인하는 예시입니다.","배**"]]]
+.map((r,i)=>({id:'sample'+i,date:r[0],category:r[1],rating:r[2],title:r[3],content:r[4],name:r[5],sample:true,photo_urls:({0:['sample-photo-1.jpg'],2:['sample-photo-2.jpg'],5:['sample-photo-4.jpg'],7:['sample-photo-3.jpg'],9:['sample-photo-4.jpg'],13:['sample-photo-3.jpg']})[i]||[]}));
+const SUPABASE_URL = 'https://oocvspgstwnnjqaydqey.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ijInfsiigSNQMr_WS4cGlg_mjnyDHzk';
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let db=null, live=[], admin=false, limit=8, connected=false;
+try { if(!SUPABASE_URL.startsWith('https://') || SUPABASE_KEY.startsWith('YOUR_')) throw new Error('새집처럼 Supabase 프로젝트 연결 전입니다.'); db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY); } catch(e) { $('db-status').textContent='후기 서버 연결을 확인해 주세요.'; }
+function render(){
+  const all=[...live,...seeds];
+  const q=$('search').value.trim().toLowerCase(),cat=$('category').value,sort=$('sort').value;
+  const rows=all.filter(r=>(!cat||r.category===cat)&&(!q||(r.title+' '+r.content+' '+r.name).toLowerCase().includes(q)));
+  rows.sort((a,b)=>sort==='old'?a.date.localeCompare(b.date):sort==='high'?b.rating-a.rating||b.date.localeCompare(a.date):b.date.localeCompare(a.date));
+  $('total').textContent=live.length+'건';
+  $('avg').textContent=live.length?(live.reduce((s,r)=>s+r.rating,0)/live.length).toFixed(1)+' / 5 ':'평가 전';
+  $('list').innerHTML=rows.slice(0,limit).map(r=>`<article class="review"><div class="review-top"><div><div class="name">${esc((String(r.name||" ").trim().charAt(0)||"익")+"**")}</div><div class="meta">${esc(r.date)} · ${esc(r.category)}</div></div><div class="stars" aria-label="${r.rating}점">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div></div><h3>${esc(r.title)}</h3><p>${esc(r.content)}</p>${Array.isArray(r.photo_urls)&&r.photo_urls.length?`<div class="photo-grid">${r.photo_urls.filter(u=>typeof u==='string'&&(r.sample?/^sample-photo-[1-4]\.jpg$/.test(u):u.startsWith(SUPABASE_URL+'/storage/v1/object/public/saejip-review-photos/'))).map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer"><img class="review-photo" src="${esc(u)}" alt="${r.sample?'샘플 후기 예시 사진':'후기 첨부 사진'}" loading="lazy"></a>`).join('')}</div>`:''}<span class="tag">${esc(r.category)}</span>${r.sample?'<span class="sample">예시 후기 · 실제 고객 작성 아님</span>':''}${admin&&!r.sample?` <button type="button" class="delete-review" data-id="${esc(r.id)}" style="border:1px solid #d66;color:#b33;background:#fff;padding:5px 8px;border-radius:5px;cursor:pointer">관리자 삭제</button>`:''}${(!r.sample && localStorage.getItem('saejip_review_owner_'+r.id))?` <button type="button" class="owner-delete-review" data-id="${esc(r.id)}" style="border:1px solid #d66;color:#b33;background:#fff;padding:5px 8px;border-radius:5px;cursor:pointer">내 후기 삭제</button>`:''}</article>`).join('')||'<div class="empty">조건에 맞는 후기가 없습니다.</div>';
+  $('more').style.display=rows.length>limit?'block':'none';
+}
+async function loadReviews(){
+ if(!db)return;
+ let {data,error}=await db.from('saejip_reviews').select('id,name,title,content,category,rating,created_at,photo_urls').order('created_at',{ascending:false}).limit(500);
+ if(error && /photo_urls/i.test(error.message)){
+   const fallback=await db.from('saejip_reviews').select('id,name,title,content,category,rating,created_at').order('created_at',{ascending:false}).limit(500);
+   data=fallback.data;error=fallback.error;
+ }
+ if(error){connected=false;$('db-status').textContent='후기 서버 연결 오류: '+error.message;return;}
+ connected=true;
+ live=(data||[]).map(r=>({...r,date:(r.created_at||'').slice(0,10),sample:false}));
+ $('db-status').textContent='실제 등록 후기 '+live.length+'건 · 예시 후기 30건';
+ render();
+}
+async function refreshAdmin(){
+ if(!db)return;
+ const {data:{user}}=await db.auth.getUser();
+ admin=false;
+ if(user){const {data,error}=await db.from('review_admins').select('user_id').eq('user_id',user.id).maybeSingle();admin=!!data&&!error;}
+ $('admin-form').hidden=!!user;
+ $('admin-logout').hidden=!user;
+ $('admin-status').textContent=user?(admin?'관리자로 로그인되었습니다. 리뷰 삭제가 가능합니다.':'로그인했지만 관리자 삭제 권한이 없습니다.'):'관리자 계정으로 로그인하세요.';
+ render();
+}
+['search','category','sort'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',()=>{limit=8;render()}));
+$('more').onclick=()=>{limit+=8;render()};
+$('write').onclick=()=>$('modal').classList.add('show');
+$('cancel').onclick=()=>{$('modal').classList.remove('show');};
+$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('show')};
+// 첨부 사진은 등록 전 개별 삭제할 수 있습니다.
+let photoPreviewUrls=[];
+function updatePhotoPreview(){
+ const preview=$('photo-preview');
+ photoPreviewUrls.forEach(url=>URL.revokeObjectURL(url));photoPreviewUrls=[];
+ preview.replaceChildren();
+ [...$('review-photos').files].forEach((file,index)=>{
+  const item=document.createElement('div');item.className='photo-preview-item';
+  const img=document.createElement('img');img.alt='첨부 사진 미리보기';
+  const url=URL.createObjectURL(file);photoPreviewUrls.push(url);img.src=url;
+  const remove=document.createElement('button');remove.type='button';remove.className='photo-remove';
+  remove.textContent='×';remove.setAttribute('aria-label',file.name+' 첨부 취소');remove.title='이 사진 첨부 취소';
+  remove.addEventListener('click',()=>{
+   const transfer=new DataTransfer();
+   [...$('review-photos').files].forEach((f,i)=>{if(i!==index)transfer.items.add(f)});
+   $('review-photos').files=transfer.files;
+   updatePhotoPreview();
+  });
+  item.append(img,remove);preview.appendChild(item);
+ });
+}
+$('review-photos').addEventListener('change',e=>{
+ const files=[...e.target.files];
+ if(files.length>3 || files.some(f=>f.size>5*1024*1024 || !['image/jpeg','image/png','image/webp'].includes(f.type))){
+  alert('JPG, PNG, WEBP 사진만 최대 3장, 장당 5MB까지 가능합니다.');e.target.value='';
+ }
+ updatePhotoPreview();
+});
+$('form').onsubmit=async e=>{
+ e.preventDefault();if(!db||!connected){alert('후기 서버에 연결되지 않아 등록할 수 없습니다.');return;}
+ const f=new FormData(e.target);const btn=e.target.querySelector('[type="submit"]');btn.disabled=true;
+ const payload={name:String(f.get('name')).trim(),category:String(f.get('category')),rating:Number(f.get('rating')),title:String(f.get('title')).trim(),content:String(f.get('content')).trim()};
+ const photos=[...$('review-photos').files];
+ if(photos.length>3 || photos.some(f=>f.size>5*1024*1024||!['image/jpeg','image/png','image/webp'].includes(f.type))){alert('사진은 최대 3장, 장당 5MB이며 JPG/PNG/WEBP만 가능합니다.');btn.disabled=false;return;}
+ const uploaded=[];
+ try {
+  for(const file of photos){
+   const ext={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[file.type];
+   const path=crypto.randomUUID()+'.'+ext;
+   const {error:uploadError}=await db.storage.from('saejip-review-photos').upload(path,file,{contentType:file.type,upsert:false});
+   if(uploadError)throw uploadError;
+   uploaded.push(db.storage.from('saejip-review-photos').getPublicUrl(path).data.publicUrl);
+  }
+ } catch(err){btn.disabled=false;alert('사진 업로드 실패: '+err.message+'\nSupabase 사진 저장소 설정을 확인해 주세요.');return;}
+ payload.photo_urls=uploaded;
+ const ownerToken = crypto.randomUUID();
+ const {data:inserted,error}=await db.from('saejip_reviews').insert({...payload,owner_token:ownerToken}).select('id').single();
+ btn.disabled=false;
+ if(error){alert('등록 실패: '+error.message+'\nSupabase SQL 설정이 완료됐는지 확인하세요.');return;}
+ if(inserted?.id){
+  try{ localStorage.setItem('saejip_review_owner_'+inserted.id, ownerToken); }catch(e){}
+ }
+ e.target.reset();updatePhotoPreview();$('modal').classList.remove('show');limit=8;await loadReviews();alert('후기가 등록되었습니다. 이 브라우저에서 나중에 삭제할 수 있습니다.');
+};
+function toggleAdminPanel(){
+ const section=document.querySelector('.admin-section');
+ const opening=!section.classList.contains('open');
+ section.classList.toggle('open',opening);
+ $('admin-panel').hidden=!opening;
+ if(opening){$('admin-email').focus({preventScroll:true});}
+}
+$('admin-header-button').addEventListener('click',toggleAdminPanel);
+
+$('admin-form').onsubmit=async e=>{
+ e.preventDefault();if(!db)return;
+ $('admin-status').textContent='로그인 확인 중...';
+ const {error}=await db.auth.signInWithPassword({email:$('admin-email').value.trim(),password:$('admin-password').value});
+ $('admin-password').value='';
+ if(error){$('admin-status').textContent='로그인 실패: '+error.message;return;}
+ await refreshAdmin();
+};
+$('admin-logout').onclick=async()=>{await db.auth.signOut();await refreshAdmin()};
+$('list').addEventListener('click',async e=>{
+ const ownerBtn=e.target.closest('.owner-delete-review');
+ if(ownerBtn && db){
+  const id=ownerBtn.dataset.id;
+  const token=localStorage.getItem('saejip_review_owner_'+id);
+  if(!token){alert('삭제 권한이 없습니다.');return;}
+  if(!confirm('내가 작성한 후기를 삭제하시겠습니까?'))return;
+  ownerBtn.disabled=true;
+  const {data,error}=await db.rpc('delete_own_saejip_review',{p_review_id:id,p_owner_token:token});
+  if(error||data!==true){alert('삭제 실패: '+(error?.message||'작성자 확인값이 일치하지 않습니다. 기존 후기는 관리자에게 삭제를 요청하세요.'));ownerBtn.disabled=false;return;}
+  localStorage.removeItem('saejip_review_owner_'+id);
+  await loadReviews();
+  return;
+ }
+ const btn=e.target.closest('.delete-review');if(!btn||!admin||!db)return;
+ if(!confirm('이 후기를 모든 방문자의 화면에서 영구 삭제하시겠습니까?'))return;
+ btn.disabled=true;
+ const {data,error}=await db.from('saejip_reviews').delete().eq('id',btn.dataset.id).select('id');
+ if(error||!data?.length){alert('삭제 실패: '+(error?.message||'삭제 권한 또는 대상 후기를 확인하세요.'));btn.disabled=false;return;}
+ await loadReviews();
+});
+
+// Supabase password-recovery links contain a one-time recovery token.
+// Keep the recovery form separate from normal admin login.
+let recoveryVerified=false;
+const recoveryOverlay=$('password-recovery-overlay');
+const recoveryStatus=$('password-recovery-status');
+function showRecoveryForm(message){recoveryOverlay.classList.add('show');recoveryStatus.textContent=message||'';}
+function isRecoveryLink(){
+ const hash=new URLSearchParams(location.hash.replace(/^#/,''));
+ const query=new URLSearchParams(location.search);
+ return hash.get('type')==='recovery'||query.get('type')==='recovery'||!!query.get('token_hash')&&query.get('type')==='recovery';
+}
+const recoveryLinkOpened=isRecoveryLink();
+if(recoveryLinkOpened)showRecoveryForm('재설정 링크 확인 중입니다...');
+if(db){
+ db.auth.onAuthStateChange((event,session)=>{
+  if(event==='PASSWORD_RECOVERY'){
+   recoveryVerified=true;
+   showRecoveryForm('새 비밀번호를 입력하세요.');
+  }
+ });
+ (async()=>{
+  if(!recoveryLinkOpened)return;
+  const q=new URLSearchParams(location.search);
+  if(q.get('token_hash')&&q.get('type')==='recovery'){
+   const {error}=await db.auth.verifyOtp({token_hash:q.get('token_hash'),type:'recovery'});
+   if(error){recoveryStatus.textContent='재설정 링크 확인 실패: '+error.message+'\n새 재설정 메일을 요청하세요.';return;}
+   recoveryVerified=true;
+   showRecoveryForm('새 비밀번호를 입력하세요.');
+   return;
+  }
+  // Supabase SDK automatically processes #access_token=...&type=recovery.
+  // Allow its async recovery event to fire; do not assume a regular session is a recovery session.
+  setTimeout(()=>{if(!recoveryVerified)recoveryStatus.textContent='재설정 링크 인증을 확인하지 못했습니다. 새 메일의 링크로 다시 접속해 주세요.';},4500);
+ })();
+}
+$('password-recovery-form').addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!db||!recoveryVerified){recoveryStatus.textContent='재설정 링크 인증이 필요합니다. 이메일 링크로 다시 접속해 주세요.';return;}
+ const pw=$('new-admin-password').value;
+ if(pw!==$('confirm-admin-password').value){recoveryStatus.textContent='새 비밀번호가 서로 다릅니다.';return;}
+ const btn=$('password-recovery-submit');btn.disabled=true;
+ recoveryStatus.textContent='비밀번호 변경 중...';
+ const {error}=await db.auth.updateUser({password:pw});
+ btn.disabled=false;
+ if(error){recoveryStatus.textContent='변경 실패: '+error.message;return;}
+ recoveryVerified=false;
+ $('password-recovery-form').reset();
+ recoveryStatus.textContent='비밀번호가 변경되었습니다. 닫기를 누르고 새 비밀번호로 로그인하세요.';
+ history.replaceState(null,'',location.pathname);
+ await db.auth.signOut();
+ await refreshAdmin();
+});
+$('password-recovery-close').addEventListener('click',()=>{
+ recoveryOverlay.classList.remove('show');
+ if(recoveryLinkOpened)history.replaceState(null,'',location.pathname);
+});
+
+render();loadReviews();refreshAdmin();
+</script></body></html>
